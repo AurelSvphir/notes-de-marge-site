@@ -1,0 +1,417 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0F1B2D">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Notes de marge">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230F1B2D'/%3E%3Ctext x='32' y='44' font-family='Impact,Arial' font-size='34' text-anchor='middle' fill='%23F1E4C3'%3ENM%3C/text%3E%3Crect x='12' y='50' width='40' height='4' fill='%23E4572E'/%3E%3C/svg%3E">
+<title>Carnet de bord Notes de marge</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800&family=Special+Elite&family=Reenie+Beanie&display=swap">
+<style>
+/* Carnet d'enquête : fond nuit, fiches papier scotchées, tampons vermillon. Une seule colonne sur téléphone, deux sur grand écran. */
+:root {
+  --nuit: #0F1B2D; --nuit-2: #16253B; --creme: #F1E4C3; --papier: #EDE0BE; --encre: #1B2433;
+  --vermillon: #E4572E; --vert: #3FA47A; --ambre: #E0A33A; --gris: #8C96A6; --ligne: rgba(241,228,195,.12);
+  --f-titre: 'Big Shoulders Display', 'Arial Narrow', Impact, sans-serif;
+  --f-machine: 'Special Elite', 'Courier New', ui-monospace, monospace;
+  --f-main: 'Reenie Beanie', 'Bradley Hand', cursive;
+  --f-texte: ui-sans-serif, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  color-scheme: dark;
+}
+html, body { background: var(--nuit); color: var(--creme); margin: 0; }
+* { box-sizing: border-box; }
+:root { padding-top: env(safe-area-inset-top, 0px); }
+body {
+  font-family: var(--f-texte); font-size: 15px; line-height: 1.45;
+  background-image: repeating-linear-gradient(0deg, transparent 0 31px, rgba(241,228,195,.045) 31px 32px);
+}
+.wrap { max-width: 980px; margin-inline: auto; padding: 0 16px 96px; display: grid; gap: 28px; }
+@media (min-width: 760px) { .wrap { padding-bottom: 48px; } }
+
+/* En-tête */
+.top { padding-top: 22px; display: grid; gap: 6px; }
+.eyebrow { font-family: var(--f-machine); font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--vermillon); }
+h1 { margin: 0; font-family: var(--f-titre); font-weight: 800; font-size: clamp(40px, 11vw, 72px); line-height: .86; letter-spacing: -.01em; text-transform: uppercase; text-wrap: balance; }
+.maj { font-family: var(--f-main); font-size: 22px; color: var(--creme); opacity: .8; transform: rotate(-1.5deg); transform-origin: left; }
+
+/* Navigation */
+.nav { position: fixed; left: 0; right: 0; bottom: 0; z-index: 5; display: grid; grid-template-columns: repeat(5, 1fr);
+  background: var(--nuit-2); border-top: 1px solid var(--ligne); padding-bottom: env(safe-area-inset-bottom, 0px); }
+.nav button { all: unset; cursor: pointer; text-align: center; padding: 10px 2px 9px; font-family: var(--f-machine); font-size: 11px; color: var(--gris); display: grid; gap: 3px; justify-items: center; }
+.nav button svg { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.nav button[aria-current="page"] { color: var(--creme); }
+.nav button[aria-current="page"] svg { stroke: var(--vermillon); }
+.nav button:focus-visible { outline: 2px solid var(--vermillon); outline-offset: -4px; }
+@media (min-width: 760px) {
+  .nav { position: sticky; top: env(safe-area-inset-top, 0px); bottom: auto; border-top: 0; border-bottom: 1px solid var(--ligne); background: rgba(15,27,45,.94); grid-template-columns: repeat(5, auto); justify-content: start; gap: 8px; padding: 0 16px; }
+  .nav button { grid-auto-flow: column; gap: 8px; padding: 14px 10px; font-size: 13px; }
+}
+
+/* Compteurs */
+.compteurs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+@media (min-width: 640px) { .compteurs { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.compteur { border: 1px solid var(--ligne); border-radius: 6px; padding: 14px; display: grid; gap: 4px; background: rgba(241,228,195,.03); }
+.compteur b { font-family: var(--f-titre); font-weight: 800; font-size: 46px; line-height: .9; font-variant-numeric: tabular-nums; }
+.compteur span { font-family: var(--f-machine); font-size: 12px; color: var(--gris); }
+
+/* Tampons d'état */
+.tampon { display: inline-flex; align-items: center; gap: 6px; font-family: var(--f-machine); font-size: 11px; letter-spacing: .08em; text-transform: uppercase;
+  padding: 3px 8px 2px; border: 1.5px solid currentColor; border-radius: 3px; transform: rotate(-2deg); white-space: nowrap; }
+.tampon::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+.e-prog { color: var(--vert); } .e-prep { color: var(--ambre); } .e-faire { color: var(--gris); } .e-pass { color: var(--creme); }
+.e-prep::before { animation: pouls 1.4s ease-in-out infinite; }
+@keyframes pouls { 50% { opacity: .25; } }
+@media (prefers-reduced-motion: reduce) { .e-prep::before { animation: none; } }
+
+/* Fiches papier */
+h2 { margin: 0 0 12px; font-family: var(--f-titre); font-weight: 700; font-size: 28px; text-transform: uppercase; letter-spacing: .01em; display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+h2 small { font-family: var(--f-main); font-size: 22px; text-transform: none; color: var(--vermillon); font-weight: 400; }
+.fiches { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 210px), 1fr)); gap: 18px; }
+.fiche { position: relative; background: var(--papier); color: var(--encre); padding: 18px 14px 14px; border-radius: 2px; box-shadow: 2px 3px 0 rgba(0,0,0,.35);
+  display: grid; gap: 8px; align-content: start; min-width: 0; }
+.fiche:nth-child(odd) { transform: rotate(-.6deg); } .fiche:nth-child(even) { transform: rotate(.5deg); }
+.fiche::before { content: ""; position: absolute; top: -9px; left: 50%; width: 58px; height: 18px; margin-left: -29px; background: rgba(241,228,195,.55); transform: rotate(-3deg); }
+.fiche .h { font-family: var(--f-titre); font-weight: 800; font-size: 34px; line-height: .9; color: var(--encre); }
+.fiche .t { font-family: var(--f-machine); font-size: 14px; line-height: 1.35; overflow-wrap: anywhere; }
+.fiche .t.vide { opacity: .55; }
+.fiche .m { display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: center; font-family: var(--f-machine); font-size: 11px; color: #4A5468; }
+.fiche .tampon.e-pass { color: var(--encre); }
+.fiche .tampon.e-faire { color: #6B7385; }
+.fiche .tampon.e-prog { color: #23784F; }
+.fiche .tampon.e-prep { color: #A8680C; }
+
+/* Liens plateformes */
+.liens { display: flex; flex-wrap: wrap; gap: 6px; }
+.lien { display: inline-flex; align-items: center; gap: 5px; font-family: var(--f-machine); font-size: 11px; text-decoration: none;
+  padding: 4px 8px 3px; border-radius: 999px; border: 1px solid currentColor; color: inherit; }
+.lien svg { width: 13px; height: 13px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+a.lien:hover { background: rgba(228,87,46,.12); }
+a.lien:focus-visible { outline: 2px solid var(--vermillon); outline-offset: 2px; }
+span.lien { opacity: .45; border-style: dashed; }
+.fiche .lien { color: var(--encre); }
+.item .liens { grid-column: 1 / -1; }
+
+/* Stats */
+.totaux { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-bottom: 8px; }
+@media (min-width: 640px) { .totaux { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.total { border-bottom: 2px solid var(--vermillon); padding: 6px 0 10px; display: grid; gap: 2px; }
+.total b { font-family: var(--f-titre); font-weight: 800; font-size: 40px; line-height: .95; font-variant-numeric: tabular-nums; }
+.total span { font-family: var(--f-machine); font-size: 12px; color: var(--gris); }
+.abonnes { font-family: var(--f-main); font-size: 24px; margin: 6px 0 18px; }
+.posts { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 290px), 1fr)); gap: 18px; }
+.post { display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 14px; padding: 12px; border: 1px solid var(--ligne); border-radius: 6px; background: rgba(241,228,195,.03); }
+.post img, .post .pas-img { width: 96px; aspect-ratio: 9 / 16; object-fit: cover; border-radius: 4px; display: block; background: var(--nuit-2); border: 1px solid var(--ligne); }
+.post .corps { display: grid; gap: 8px; align-content: start; min-width: 0; }
+.post .titre { font-family: var(--f-machine); font-size: 14px; line-height: 1.3; overflow-wrap: anywhere; }
+.post .titre b { font-family: var(--f-titre); font-size: 18px; color: var(--vermillon); margin-right: 4px; }
+.post .quand { font-family: var(--f-machine); font-size: 11px; color: var(--gris); }
+.plat { display: grid; gap: 4px; border-top: 1px dashed var(--ligne); padding-top: 6px; }
+.plat-tete { display: flex; justify-content: space-between; align-items: center; gap: 6px; }
+.plat-tete .nom { display: inline-flex; align-items: center; gap: 5px; font-family: var(--f-machine); font-size: 11px; color: var(--creme); }
+.plat-tete .nom svg { width: 13px; height: 13px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.plat-tete a { font-family: var(--f-machine); font-size: 11px; color: var(--vermillon); }
+.chiffres { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 4px; }
+.chiffres div { display: grid; }
+.chiffres b { font-family: var(--f-titre); font-weight: 700; font-size: 20px; font-variant-numeric: tabular-nums; line-height: 1; }
+.chiffres span { font-size: 10px; font-family: var(--f-machine); color: var(--gris); }
+
+/* Atelier */
+.atelier { display: grid; gap: 10px; }
+.ligne-act { display: grid; grid-template-columns: 92px 1fr; gap: 10px; padding: 12px 0; border-top: 1px dashed var(--ligne); }
+.ligne-act:first-child { border-top: 0; }
+.ligne-act .q { font-family: var(--f-machine); font-size: 12px; color: var(--gris); font-variant-numeric: tabular-nums; }
+.ligne-act .x { display: grid; gap: 4px; min-width: 0; }
+.ligne-act .x b { font-weight: 600; }
+.ligne-act .x p { margin: 0; color: rgba(241,228,195,.75); font-size: 14px; }
+.encours { border: 1.5px solid var(--ambre); border-radius: 6px; padding: 14px 16px; display: grid; gap: 6px; background: rgba(224,163,58,.06); }
+.encours .k { font-family: var(--f-machine); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--ambre); }
+.encours .v { font-family: var(--f-titre); font-weight: 700; font-size: 26px; line-height: 1; text-transform: uppercase; }
+.encours p { margin: 0; color: rgba(241,228,195,.8); }
+
+/* Semaine */
+.jours { display: grid; gap: 14px; }
+.jour { border-top: 1px solid var(--ligne); padding-top: 12px; display: grid; gap: 8px; }
+.jour h3 { margin: 0; font-family: var(--f-machine); font-weight: 400; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--vermillon); }
+.creneau { display: grid; grid-template-columns: 54px 1fr auto; gap: 10px; align-items: center; min-height: 34px; }
+.creneau .hh { font-family: var(--f-titre); font-weight: 700; font-size: 20px; font-variant-numeric: tabular-nums; }
+.creneau .tt { min-width: 0; overflow-wrap: anywhere; font-size: 14px; }
+.creneau .tt i { font-style: normal; font-family: var(--f-machine); font-size: 11px; color: var(--gris); margin-right: 6px; }
+@media (max-width: 420px) { .creneau { grid-template-columns: 46px 1fr; } .creneau .tampon { grid-column: 2; justify-self: start; } }
+
+/* Liste */
+.outils { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+.outils input { flex: 1 1 200px; min-width: 0; font: inherit; font-family: var(--f-machine); font-size: 14px; padding: 10px 12px; border-radius: 4px; border: 1px solid var(--ligne); background: var(--nuit-2); color: var(--creme); }
+.outils input:focus-visible, .filtre:focus-visible { outline: 2px solid var(--vermillon); outline-offset: 2px; }
+.filtre { all: unset; cursor: pointer; font-family: var(--f-machine); font-size: 12px; padding: 8px 10px; border: 1px solid var(--ligne); border-radius: 999px; color: var(--gris); }
+.filtre[aria-pressed="true"] { color: var(--nuit); background: var(--creme); border-color: var(--creme); }
+.liste { display: grid; }
+.item { display: grid; grid-template-columns: 1fr auto; gap: 4px 12px; padding: 12px 0; border-top: 1px solid var(--ligne); }
+.item .t { min-width: 0; overflow-wrap: anywhere; }
+.item .t b { font-family: var(--f-titre); font-weight: 700; font-size: 18px; margin-right: 6px; color: var(--vermillon); }
+.item .d { grid-column: 1 / -1; font-family: var(--f-machine); font-size: 11px; color: var(--gris); display: flex; flex-wrap: wrap; gap: 4px 12px; }
+.item .d .ok { color: var(--vert); } .item .d .non { color: var(--gris); opacity: .8; }
+
+.vide-etat { border: 1px dashed var(--ligne); border-radius: 6px; padding: 22px; font-family: var(--f-machine); font-size: 14px; color: var(--gris); }
+.vide-etat em { display: block; font-family: var(--f-main); font-style: normal; font-size: 24px; color: var(--creme); margin-bottom: 4px; }
+section[hidden] { display: none !important; }
+.legende { display: flex; flex-wrap: wrap; gap: 10px; }
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="Rubriques">
+  <button data-vue="auj" aria-current="page"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 7v5l3 2"/></svg>Aujourd'hui</button>
+  <button data-vue="sem"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="1"/><path d="M4 10h16M9 3v4M15 3v4"/></svg>Semaine</button>
+  <button data-vue="vid"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="1"/><path d="M10 9l5 3-5 3z"/></svg>Vidéos</button>
+  <button data-vue="sta"><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>Stats</button>
+  <button data-vue="ate"><svg viewBox="0 0 24 24"><path d="M4 20l4-1 11-11-3-3L5 16z"/><path d="M14 7l3 3"/></svg>Atelier</button>
+</nav>
+
+<main class="wrap">
+  <header class="top">
+    <div class="eyebrow">Carnet de bord · @notes.de.marge</div>
+    <h1>Notes de marge</h1>
+    <div class="maj" id="maj">mise à jour…</div>
+  </header>
+
+  <div class="compteurs" aria-label="Vidéos par étape">
+    <div class="compteur"><b id="n-prog">–</b><span class="tampon e-prog">Programmées</span></div>
+    <div class="compteur"><b id="n-prep">–</b><span class="tampon e-prep">En préparation</span></div>
+    <div class="compteur"><b id="n-faire">–</b><span class="tampon e-faire">À produire</span></div>
+    <div class="compteur"><b id="n-pass">–</b><span class="tampon e-pass">Postées</span></div>
+  </div>
+
+  <section id="vue-auj" aria-labelledby="t-auj">
+    <h2 id="t-auj">Aujourd'hui <small id="auj-date"></small></h2>
+    <div class="fiches" id="fiches-auj"></div>
+    <div style="height: 22px"></div>
+    <h2>Demain <small id="dem-date"></small></h2>
+    <div class="fiches" id="fiches-dem"></div>
+  </section>
+
+  <section id="vue-sem" aria-labelledby="t-sem" hidden>
+    <h2 id="t-sem">La semaine</h2>
+    <div class="jours" id="jours"></div>
+  </section>
+
+  <section id="vue-vid" aria-labelledby="t-vid" hidden>
+    <h2 id="t-vid">Toutes les vidéos</h2>
+    <div class="outils">
+      <input id="q" type="search" placeholder="Titre, numéro, jour…" aria-label="Chercher une vidéo">
+      <button class="filtre" data-f="" aria-pressed="true">Toutes</button>
+      <button class="filtre" data-f="Actu" aria-pressed="false">Actu</button>
+      <button class="filtre" data-f="Hors actu" aria-pressed="false">Hors actu</button>
+      <button class="filtre" data-f="Stock" aria-pressed="false">Stock</button>
+    </div>
+    <div class="liste" id="liste"></div>
+  </section>
+
+  <section id="vue-sta" aria-labelledby="t-sta" hidden>
+    <h2 id="t-sta">Stats <small id="sta-releve"></small></h2>
+    <div class="totaux">
+      <div class="total"><b id="tot-vues">–</b><span>vues</span></div>
+      <div class="total"><b id="tot-likes">–</b><span>likes</span></div>
+      <div class="total"><b id="tot-partages">–</b><span>partages</span></div>
+      <div class="total"><b id="tot-enreg">–</b><span>enregistrements</span></div>
+    </div>
+    <div class="abonnes" id="abonnes"></div>
+    <div class="posts" id="posts"></div>
+  </section>
+
+  <section id="vue-ate" aria-labelledby="t-ate" hidden>
+    <h2 id="t-ate">Atelier <small>ce que fait le Mac</small></h2>
+    <div class="atelier" id="atelier"></div>
+  </section>
+</main>
+
+<script>
+(() => {
+  const ETAT = { 'Programmée': ['e-prog', 'Programmée'], 'En préparation': ['e-prep', 'En préparation'], 'À produire': ['e-faire', 'À produire'], 'Publiée': ['e-pass', 'Postée'], 'Prête': ['e-prep', 'Prête'] };
+  const JOURS = ['dim.', 'lun.', 'mar.', 'mer.', 'jeu.', 'ven.', 'sam.'];
+  const MOIS = ['janv.', 'févr.', 'mars', 'avr.', 'mai', 'juin', 'juil.', 'août', 'sept.', 'oct.', 'nov.', 'déc.'];
+  let videos = [], activite = [], site = null, filtre = '';
+
+  const el = (tag, cls, txt) => { const e = document.createElement(tag); if (cls) e.className = cls; if (txt != null) e.textContent = txt; return e; };
+  const tampon = (etape) => { const [c, l] = ETAT[etape] || ['e-faire', etape || '—']; return el('span', 'tampon ' + c, l); };
+  const iso = (d) => d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+  const joliDate = (s) => { const d = new Date(s + 'T12:00:00'); return JOURS[d.getDay()] + ' ' + d.getDate() + ' ' + MOIS[d.getMonth()]; };
+  const vide = (titre, texte) => { const d = el('div', 'vide-etat'); d.append(el('em', null, titre), document.createTextNode(texte)); return d; };
+
+  const ICONES = {
+    tiktok: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18V6l10-2v12"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="16.5" cy="16" r="2.5"/></svg>',
+    shorts: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="3" width="12" height="18" rx="3"/><path d="M11 9.5l3.5 2.5-3.5 2.5z"/></svg>'
+  };
+  function liens(v) {
+    const box = el('div', 'liens');
+    if (!v.num) return box;
+    [['tiktok', 'TikTok', v.tiktok_url], ['shorts', 'YouTube Shorts', v.youtube_url]].forEach(([k, nom, url]) => {
+      const ok = typeof url === 'string' && /^https:\/\/(www\.)?(tiktok\.com|youtube\.com|youtu\.be)\//.test(url);
+      const a = el(ok ? 'a' : 'span', 'lien');
+      if (ok) { a.href = url; a.target = '_blank'; a.rel = 'noopener'; a.setAttribute('aria-label', 'Voir sur ' + nom); }
+      else a.title = v.etape === 'Publiée' ? 'Lien pas encore relevé' : 'Lien disponible après publication';
+      a.innerHTML = ICONES[k]; a.append(document.createTextNode(nom));
+      box.append(a);
+    });
+    return box;
+  }
+
+  function fiches(box, jour) {
+    box.textContent = '';
+    const rows = videos.filter(v => v.date === jour).sort((a, b) => a.heure.localeCompare(b.heure));
+    if (!rows.length) { box.append(vide('Rien de prévu', 'Aucune vidéo enregistrée pour ce jour.')); return; }
+    rows.forEach(v => {
+      const f = el('article', 'fiche');
+      f.append(el('div', 'h', v.heure));
+      f.append(el('div', 't' + (v.num ? '' : ' vide'), v.num ? 'N°' + v.num + ' — ' + v.titre : v.titre));
+      const m = el('div', 'm'); m.append(tampon(v.etape), el('span', null, v.type)); f.append(m);
+      if (v.num) f.append(liens(v));
+      box.append(f);
+    });
+  }
+
+  function compteurs() {
+    const n = (k) => videos.filter(v => v.etape === k).length;
+    const set = (id, k) => { document.getElementById(id).textContent = videos.length ? n(k) : '–'; };
+    set('n-prog', 'Programmée'); set('n-prep', 'En préparation'); set('n-faire', 'À produire'); set('n-pass', 'Publiée');
+  }
+
+  function semaine() {
+    const box = document.getElementById('jours'); box.textContent = '';
+    if (!videos.length) { box.append(vide('Carnet vide', 'Les créneaux apparaîtront ici dès que Claude aura relevé le planning du Mac.')); return; }
+    const parJour = new Map();
+    [...videos].sort((a, b) => (a.date + a.heure).localeCompare(b.date + b.heure)).forEach(v => { if (!parJour.has(v.date)) parJour.set(v.date, []); parJour.get(v.date).push(v); });
+    parJour.forEach((rows, date) => {
+      const j = el('div', 'jour'); j.append(el('h3', null, joliDate(date)));
+      rows.forEach(v => {
+        const c = el('div', 'creneau');
+        const tt = el('div', 'tt'); tt.append(el('i', null, v.type), document.createTextNode(v.num ? v.num + ' · ' + v.titre : v.titre));
+        c.append(el('span', 'hh', v.heure), tt, tampon(v.etape)); j.append(c);
+      });
+      box.append(j);
+    });
+  }
+
+  function liste() {
+    const box = document.getElementById('liste'); box.textContent = '';
+    const q = document.getElementById('q').value.trim().toLowerCase();
+    const rows = [...videos].sort((a, b) => (a.date + a.heure).localeCompare(b.date + b.heure))
+      .filter(v => (!filtre || v.type === filtre) && (!q || [v.num, v.titre, v.type, joliDate(v.date), v.heure, (ETAT[v.etape] || [])[1]].join(' ').toLowerCase().includes(q)));
+    if (!rows.length) { box.append(vide(videos.length ? 'Aucun résultat' : 'Carnet vide', videos.length ? 'Essaie un autre mot ou un autre filtre.' : 'Les vidéos apparaîtront ici dès le premier relevé.')); return; }
+    rows.forEach(v => {
+      const it = el('div', 'item');
+      const t = el('div', 't'); if (v.num) t.append(el('b', null, v.num)); t.append(document.createTextNode(v.titre));
+      const d = el('div', 'd');
+      d.append(el('span', null, joliDate(v.date) + ' · ' + v.heure), el('span', null, v.type));
+      [['Script', v.script], ['Vidéo', v.video], ['Metricool', v.metricool]].forEach(([k, val]) => d.append(el('span', val === 'Oui' ? 'ok' : 'non', (val === 'Oui' ? '✓ ' : '○ ') + k + (val && val !== 'Oui' && val !== 'Non' ? ' (' + val.toLowerCase() + ')' : ''))));
+      it.append(t, tampon(v.etape), d); if (v.num) it.append(liens(v)); box.append(it);
+    });
+  }
+
+  const nf = new Intl.NumberFormat('fr-FR');
+  const fmt = (x) => (typeof x === 'number' && isFinite(x)) ? (x >= 10000 ? new Intl.NumberFormat('fr-FR', { notation: 'compact', maximumFractionDigits: 1 }).format(x) : nf.format(x)) : '–';
+  function stats() {
+    const postees = videos.filter(v => v.etape === 'Publiée' && v.num).sort((a, b) => (b.date + b.heure).localeCompare(a.date + a.heure));
+    const somme = (k) => { let t = 0, vu = false; postees.forEach(v => ['tiktok', 'youtube'].forEach(p => { const x = v.stats && v.stats[p] && v.stats[p][k]; if (typeof x === 'number') { t += x; vu = true; } })); return vu ? t : null; };
+    document.getElementById('tot-vues').textContent = fmt(somme('vues'));
+    document.getElementById('tot-likes').textContent = fmt(somme('likes'));
+    document.getElementById('tot-partages').textContent = fmt(somme('partages'));
+    document.getElementById('tot-enreg').textContent = fmt(somme('enregistrements'));
+    document.getElementById('sta-releve').textContent = site && site.stats_releve ? 'relevé ' + site.stats_releve : 'pas encore relevées';
+    const ab = document.getElementById('abonnes'); ab.textContent = '';
+    if (site && site.comptes) {
+      const t = site.comptes.tiktok && site.comptes.tiktok.abonnes, y = site.comptes.youtube && site.comptes.youtube.abonnes;
+      ab.textContent = fmt(t) + ' abonnés TikTok · ' + fmt(y) + ' abonnés YouTube';
+    }
+    const box = document.getElementById('posts'); box.textContent = '';
+    if (!postees.length) { box.append(vide('Rien de posté pour l\'instant', 'Les vidéos apparaîtront ici dès leur publication.')); return; }
+    postees.forEach(v => {
+      const p = el('article', 'post');
+      const src = typeof v.miniature === 'string' && /^(thumbs\/[0-9]{3}\.jpg|data:image\/)/.test(v.miniature) ? v.miniature : null;
+      if (src) { const im = el('img'); im.src = src; im.alt = 'Miniature de la vidéo ' + v.num; im.loading = 'lazy'; p.append(im); } else p.append(el('div', 'pas-img'));
+      const c = el('div', 'corps');
+      const t = el('div', 'titre'); t.append(el('b', null, v.num), document.createTextNode(v.titre));
+      c.append(t, el('div', 'quand', 'postée ' + joliDate(v.date) + ' à ' + v.heure));
+      [['tiktok', 'TikTok', v.tiktok_url], ['youtube', 'YouTube Shorts', v.youtube_url]].forEach(([k, nom, url]) => {
+        const st = (v.stats && v.stats[k]) || {};
+        const pl = el('div', 'plat'); const tete = el('div', 'plat-tete');
+        const n = el('span', 'nom'); n.innerHTML = ICONES[k === 'youtube' ? 'shorts' : 'tiktok']; n.append(document.createTextNode(nom)); tete.append(n);
+        if (typeof url === 'string' && /^https:\/\/(www\.)?(tiktok\.com|youtube\.com|youtu\.be)\//.test(url)) { const a = el('a', null, 'Voir ↗'); a.href = url; a.target = '_blank'; a.rel = 'noopener'; tete.append(a); }
+        const ch = el('div', 'chiffres');
+        [['vues', 'vues'], ['likes', 'likes'], ['partages', 'partages'], ['enregistrements', 'enreg.']].forEach(([cle, lab]) => { const d = el('div'); d.append(el('b', null, fmt(st[cle])), el('span', null, lab)); ch.append(d); });
+        pl.append(tete, ch); c.append(pl);
+      });
+      p.append(c); box.append(p);
+    });
+  }
+
+  function atelier() {
+    const box = document.getElementById('atelier'); box.textContent = '';
+    if (!activite.length) { box.append(vide('Rien à signaler', 'Les tâches du Mac apparaîtront ici au prochain relevé.')); return; }
+    const rows = [...activite].sort((a, b) => Number(a.ordre) - Number(b.ordre));
+    rows.filter(r => r.etat === 'En cours').forEach(r => {
+      const e = el('div', 'encours'); e.append(el('span', 'k', 'En cours depuis ' + r.quand), el('span', 'v', r.tache), el('p', null, r.detail)); box.append(e);
+    });
+    const l = el('div');
+    rows.filter(r => r.etat !== 'En cours').forEach(r => {
+      const li = el('div', 'ligne-act'); const x = el('div', 'x');
+      const head = el('div'); head.append(el('b', null, r.tache + ' '), el('span', 'tampon ' + (r.etat === 'Terminé' ? 'e-prog' : 'e-faire'), r.etat));
+      x.append(head, el('p', null, r.detail)); li.append(el('span', 'q', r.quand), x); l.append(li);
+    });
+    box.append(l);
+  }
+
+  function tout() {
+    const now = new Date(); const auj = iso(now); const d2 = new Date(now); d2.setDate(d2.getDate() + 1); const dem = iso(d2);
+    document.getElementById('auj-date').textContent = joliDate(auj);
+    document.getElementById('dem-date').textContent = joliDate(dem);
+    document.getElementById('maj').textContent = site && site.maj ? 'relevé ' + site.maj : 'pas encore de relevé';
+    compteurs(); fiches(document.getElementById('fiches-auj'), auj); fiches(document.getElementById('fiches-dem'), dem); semaine(); liste(); stats(); atelier();
+  }
+
+  // Navigation
+  const vues = ['auj', 'sem', 'vid', 'sta', 'ate'];
+  const montrer = (v) => {
+    vues.forEach(k => { document.getElementById('vue-' + k).hidden = k !== v; });
+    document.querySelectorAll('.nav button').forEach(b => b.setAttribute('aria-current', b.dataset.vue === v ? 'page' : 'false'));
+    try { localStorage.setItem('nm-vue', v); } catch (e) {}
+  };
+  document.querySelectorAll('.nav button').forEach(b => b.addEventListener('click', () => { montrer(b.dataset.vue); window.scrollTo({ top: 0 }); }));
+  const ancre = location.hash.slice(1);
+  let depart = vues.includes(ancre) ? ancre : null;
+  if (!depart) { try { depart = localStorage.getItem('nm-vue'); } catch (e) {} }
+  montrer(vues.includes(depart) ? depart : 'auj');
+
+  document.getElementById('q').addEventListener('input', liste);
+  document.querySelectorAll('.filtre').forEach(b => b.addEventListener('click', () => {
+    filtre = b.dataset.f; document.querySelectorAll('.filtre').forEach(x => x.setAttribute('aria-pressed', x === b ? 'true' : 'false')); liste();
+  }));
+
+  tout();
+
+  // Données : data.json, régénéré par le Mac toutes les 10 minutes
+  async function charger() {
+    try {
+      const r = await fetch('data.json?t=' + Date.now(), { cache: 'no-store' });
+      if (!r.ok) throw new Error(r.status);
+      const d = await r.json();
+      videos = Array.isArray(d.videos) ? d.videos : [];
+      activite = Array.isArray(d.activite) ? d.activite : [];
+      site = { maj: d.maj, stats_releve: d.stats_releve, comptes: d.comptes };
+      tout();
+    } catch (e) {
+      document.getElementById('maj').textContent = 'données indisponibles pour le moment';
+    }
+  }
+  charger();
+  setInterval(charger, 60000);
+  document.addEventListener('visibilitychange', () => { if (!document.hidden) charger(); });
+})();
+</script>
+
+</body>
+</html>
