@@ -1,5 +1,5 @@
 {
- "maj": "lun. 12 oct. à 16:01",
+ "maj": "lun. 12 oct. à 18:44",
  "stats_releve": "lun. 12 oct. à 15:35",
  "comptes": {
   "tiktok": {
@@ -539,18 +539,18 @@
  ],
  "activite": [
   {
-   "quand": "12/10 18:00",
-   "ordre": 1,
-   "tache": "Vidéos d'actu du lendemain",
-   "etat": "Prévu",
-   "detail": "2 vidéos d'actu (19:00 et 22:00) pour le lendemain, puis programmation."
-  },
-  {
    "quand": "13/10 13:00",
-   "ordre": 2,
+   "ordre": 1,
    "tache": "Idées d'actu (Telegram)",
    "etat": "Prévu",
    "detail": "6 idées d'actu pour le lendemain, envoyées sur Telegram."
+  },
+  {
+   "quand": "13/10 18:00",
+   "ordre": 2,
+   "tache": "Vidéos d'actu du lendemain",
+   "etat": "Prévu",
+   "detail": "2 vidéos d'actu (19:00 et 22:00) pour le lendemain, puis programmation."
   },
   {
    "quand": "12/10 15:51",
