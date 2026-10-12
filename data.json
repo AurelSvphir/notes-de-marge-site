@@ -1,5 +1,5 @@
 {
- "maj": "lun. 12 oct. à 18:44",
+ "maj": "lun. 12 oct. à 21:18",
  "stats_releve": "lun. 12 oct. à 15:35",
  "comptes": {
   "tiktok": {
@@ -187,7 +187,7 @@
    "num": "049",
    "titre": "Pourquoi le prix à la pompe ne baisse pas avec le pétrole",
    "type": "Actu",
-   "etape": "Programmée",
+   "etape": "Publiée",
    "script": "Oui",
    "video": "Oui",
    "metricool": "Oui",
@@ -553,59 +553,59 @@
    "detail": "2 vidéos d'actu (19:00 et 22:00) pour le lendemain, puis programmation."
   },
   {
+   "quand": "12/10 18:44",
+   "tache": "Vidéos d'actu du lendemain",
+   "etat": "Terminé",
+   "detail": "Tâche lancée sur le Mac.",
+   "ordre": 3
+  },
+  {
    "quand": "12/10 15:51",
    "tache": "Programmation Metricool",
    "etat": "Terminé",
    "detail": "Consigne envoyée à ChatGPT pour le 2026-10-13 (19:00 et 22:00).",
-   "ordre": 3
+   "ordre": 4
   },
   {
    "quand": "12/10 15:01",
    "tache": "Vidéos d'actu à l'avance",
    "etat": "Terminé",
    "detail": "Tâche lancée sur le Mac.",
-   "ordre": 4
+   "ordre": 5
   },
   {
    "quand": "12/10 13:01",
    "tache": "Idées d'actu (Telegram)",
    "etat": "Terminé",
    "detail": "Tâche lancée sur le Mac.",
-   "ordre": 5
+   "ordre": 6
   },
   {
    "quand": "12/10 07:37",
    "tache": "Programmation Metricool",
    "etat": "Terminé",
    "detail": "Consigne envoyée à ChatGPT pour le 2026-10-12 (19:00 et 22:00).",
-   "ordre": 6
+   "ordre": 7
   },
   {
    "quand": "12/10 07:07",
    "tache": "Vidéos d'actu du lendemain",
    "etat": "Terminé",
    "detail": "Tâche lancée sur le Mac.",
-   "ordre": 7
+   "ordre": 8
   },
   {
    "quand": "12/10 04:37",
    "tache": "Stock hors actu",
    "etat": "Terminé",
    "detail": "Tâche lancée sur le Mac.",
-   "ordre": 8
+   "ordre": 9
   },
   {
    "quand": "12/10 01:37",
    "tache": "Programmation Metricool",
    "etat": "Terminé",
    "detail": "Consigne envoyée à ChatGPT pour le 2026-10-13 (08:00 et 12:00).",
-   "ordre": 9
-  },
-  {
-   "quand": "12/10 01:07",
-   "tache": "Stock hors actu",
-   "etat": "Terminé",
-   "detail": "Tâche lancée sur le Mac.",
    "ordre": 10
   }
  ]
