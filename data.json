@@ -1,5 +1,5 @@
 {
- "maj": "lun. 12 oct. à 15:41",
+ "maj": "lun. 12 oct. à 15:51",
  "stats_releve": "lun. 12 oct. à 15:35",
  "comptes": {
   "tiktok": {
@@ -353,10 +353,10 @@
    "jour": "Jeu. 15",
    "heure": "19:00",
    "num": "",
-   "titre": "Sujet d'actualité en cours de choix",
+   "titre": "Sera produite la veille à 18:00",
    "type": "Actu",
-   "etape": "En préparation",
-   "script": "En cours",
+   "etape": "À produire",
+   "script": "Non",
    "video": "Non",
    "metricool": "Non",
    "cle": "2026-10-15 19:00"
@@ -366,10 +366,10 @@
    "jour": "Jeu. 15",
    "heure": "22:00",
    "num": "",
-   "titre": "Sujet d'actualité en cours de choix",
+   "titre": "Sera produite la veille à 18:00",
    "type": "Actu",
-   "etape": "En préparation",
-   "script": "En cours",
+   "etape": "À produire",
+   "script": "Non",
    "video": "Non",
    "metricool": "Non",
    "cle": "2026-10-15 22:00"
@@ -407,10 +407,10 @@
    "jour": "Ven. 16",
    "heure": "19:00",
    "num": "",
-   "titre": "Sujet d'actualité en cours de choix",
+   "titre": "Sera produite la veille à 18:00",
    "type": "Actu",
-   "etape": "En préparation",
-   "script": "En cours",
+   "etape": "À produire",
+   "script": "Non",
    "video": "Non",
    "metricool": "Non",
    "cle": "2026-10-16 19:00"
@@ -420,10 +420,10 @@
    "jour": "Ven. 16",
    "heure": "22:00",
    "num": "",
-   "titre": "Sujet d'actualité en cours de choix",
+   "titre": "Sera produite la veille à 18:00",
    "type": "Actu",
-   "etape": "En préparation",
-   "script": "En cours",
+   "etape": "À produire",
+   "script": "Non",
    "video": "Non",
    "metricool": "Non",
    "cle": "2026-10-16 22:00"
@@ -461,10 +461,10 @@
    "jour": "Sam. 17",
    "heure": "19:00",
    "num": "",
-   "titre": "Sujet d'actualité en cours de choix",
+   "titre": "Sera produite la veille à 18:00",
    "type": "Actu",
-   "etape": "En préparation",
-   "script": "En cours",
+   "etape": "À produire",
+   "script": "Non",
    "video": "Non",
    "metricool": "Non",
    "cle": "2026-10-17 19:00"
@@ -474,10 +474,10 @@
    "jour": "Sam. 17",
    "heure": "22:00",
    "num": "",
-   "titre": "Sujet d'actualité en cours de choix",
+   "titre": "Sera produite la veille à 18:00",
    "type": "Actu",
-   "etape": "En préparation",
-   "script": "En cours",
+   "etape": "À produire",
+   "script": "Non",
    "video": "Non",
    "metricool": "Non",
    "cle": "2026-10-17 22:00"
@@ -515,10 +515,10 @@
    "jour": "Dim. 18",
    "heure": "19:00",
    "num": "",
-   "titre": "Sujet d'actualité en cours de choix",
+   "titre": "Sera produite la veille à 18:00",
    "type": "Actu",
-   "etape": "En préparation",
-   "script": "En cours",
+   "etape": "À produire",
+   "script": "Non",
    "video": "Non",
    "metricool": "Non",
    "cle": "2026-10-18 19:00"
@@ -528,10 +528,10 @@
    "jour": "Dim. 18",
    "heure": "22:00",
    "num": "",
-   "titre": "Sujet d'actualité en cours de choix",
+   "titre": "Sera produite la veille à 18:00",
    "type": "Actu",
-   "etape": "En préparation",
-   "script": "En cours",
+   "etape": "À produire",
+   "script": "Non",
    "video": "Non",
    "metricool": "Non",
    "cle": "2026-10-18 22:00"
@@ -539,22 +539,15 @@
  ],
  "activite": [
   {
-   "quand": "12/10 15:41",
-   "ordre": 1,
-   "tache": "Vidéos d'actu à l'avance",
-   "etat": "En cours",
-   "detail": "Recherche, script, voix et rendu en cours sur le Mac."
-  },
-  {
    "quand": "12/10 18:00",
-   "ordre": 2,
+   "ordre": 1,
    "tache": "Vidéos d'actu du lendemain",
    "etat": "Prévu",
    "detail": "2 vidéos d'actu (19:00 et 22:00) pour le lendemain, puis programmation."
   },
   {
    "quand": "13/10 13:00",
-   "ordre": 3,
+   "ordre": 2,
    "tache": "Idées d'actu (Telegram)",
    "etat": "Prévu",
    "detail": "6 idées d'actu pour le lendemain, envoyées sur Telegram."
@@ -564,56 +557,56 @@
    "tache": "Vidéos d'actu à l'avance",
    "etat": "Terminé",
    "detail": "Tâche lancée sur le Mac.",
-   "ordre": 4
+   "ordre": 3
   },
   {
    "quand": "12/10 13:01",
    "tache": "Idées d'actu (Telegram)",
    "etat": "Terminé",
    "detail": "Tâche lancée sur le Mac.",
-   "ordre": 5
+   "ordre": 4
   },
   {
    "quand": "12/10 07:37",
    "tache": "Programmation Metricool",
    "etat": "Terminé",
    "detail": "Consigne envoyée à ChatGPT pour le 2026-10-12 (19:00 et 22:00).",
-   "ordre": 6
+   "ordre": 5
   },
   {
    "quand": "12/10 07:07",
    "tache": "Vidéos d'actu du lendemain",
    "etat": "Terminé",
    "detail": "Tâche lancée sur le Mac.",
-   "ordre": 7
+   "ordre": 6
   },
   {
    "quand": "12/10 04:37",
    "tache": "Stock hors actu",
    "etat": "Terminé",
    "detail": "Tâche lancée sur le Mac.",
-   "ordre": 8
+   "ordre": 7
   },
   {
    "quand": "12/10 01:37",
    "tache": "Programmation Metricool",
    "etat": "Terminé",
    "detail": "Consigne envoyée à ChatGPT pour le 2026-10-13 (08:00 et 12:00).",
-   "ordre": 9
+   "ordre": 8
   },
   {
    "quand": "12/10 01:07",
    "tache": "Stock hors actu",
    "etat": "Terminé",
    "detail": "Tâche lancée sur le Mac.",
-   "ordre": 10
+   "ordre": 9
   },
   {
    "quand": "11/10 23:26",
    "tache": "Programmation Metricool",
    "etat": "Terminé",
    "detail": "Consigne envoyée à ChatGPT pour le 2026-10-12 (08:00, 12:00 et 22:00).",
-   "ordre": 11
+   "ordre": 10
   }
  ]
 }
