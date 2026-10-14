@@ -1,5 +1,5 @@
 {
- "maj": "mar. 13 oct. à 18:51",
+ "maj": "mer. 14 oct. à 08:32",
  "stats_releve": "lun. 12 oct. à 15:35",
  "comptes": {
   "tiktok": {
@@ -95,7 +95,7 @@
    "num": "045",
    "titre": "Napoléon pas si petit",
    "type": "Stock",
-   "etape": "Programmée",
+   "etape": "Publiée",
    "script": "Non",
    "video": "Oui",
    "metricool": "Oui",
@@ -243,7 +243,7 @@
    "num": "063",
    "titre": "Le « Nobel » d'économie n'est pas un vrai Nobel",
    "type": "Actu",
-   "etape": "Programmée",
+   "etape": "Publiée",
    "script": "Oui",
    "video": "Oui",
    "metricool": "Oui",
@@ -257,7 +257,7 @@
    "num": "064",
    "titre": "Comment un futur médecin choisit sa spécialité",
    "type": "Actu",
-   "etape": "Programmée",
+   "etape": "Publiée",
    "script": "Oui",
    "video": "Oui",
    "metricool": "Oui",
@@ -271,7 +271,7 @@
    "num": "053",
    "titre": "La Grande Puanteur de Londres",
    "type": "Hors actu",
-   "etape": "Programmée",
+   "etape": "Publiée",
    "script": "Oui",
    "video": "Oui",
    "metricool": "Oui",
@@ -553,59 +553,59 @@
    "detail": "2 vidéos d'actu (19:00 et 22:00) pour le lendemain, puis programmation."
   },
   {
+   "quand": "13/10 18:51",
+   "tache": "Vidéos d'actu du lendemain",
+   "etat": "Terminé",
+   "detail": "Tâche lancée sur le Mac.",
+   "ordre": 3
+  },
+  {
    "quand": "13/10 14:05",
    "tache": "Idées d'actu (Telegram)",
    "etat": "Terminé",
    "detail": "Tâche lancée sur le Mac.",
-   "ordre": 3
+   "ordre": 4
   },
   {
    "quand": "13/10 13:55",
    "tache": "Programmation Metricool",
    "etat": "Terminé",
    "detail": "Consigne envoyée à ChatGPT pour le 2026-10-14 (19:00 et 22:00).",
-   "ordre": 4
+   "ordre": 5
   },
   {
    "quand": "12/10 18:44",
    "tache": "Vidéos d'actu du lendemain",
    "etat": "Terminé",
    "detail": "Tâche lancée sur le Mac.",
-   "ordre": 5
+   "ordre": 6
   },
   {
    "quand": "12/10 15:51",
    "tache": "Programmation Metricool",
    "etat": "Terminé",
    "detail": "Consigne envoyée à ChatGPT pour le 2026-10-13 (19:00 et 22:00).",
-   "ordre": 6
+   "ordre": 7
   },
   {
    "quand": "12/10 15:01",
    "tache": "Vidéos d'actu à l'avance",
    "etat": "Terminé",
    "detail": "Tâche lancée sur le Mac.",
-   "ordre": 7
+   "ordre": 8
   },
   {
    "quand": "12/10 13:01",
    "tache": "Idées d'actu (Telegram)",
    "etat": "Terminé",
    "detail": "Tâche lancée sur le Mac.",
-   "ordre": 8
+   "ordre": 9
   },
   {
    "quand": "12/10 07:37",
    "tache": "Programmation Metricool",
    "etat": "Terminé",
    "detail": "Consigne envoyée à ChatGPT pour le 2026-10-12 (19:00 et 22:00).",
-   "ordre": 9
-  },
-  {
-   "quand": "12/10 07:07",
-   "tache": "Vidéos d'actu du lendemain",
-   "etat": "Terminé",
-   "detail": "Tâche lancée sur le Mac.",
    "ordre": 10
   }
  ]
