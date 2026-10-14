@@ -1,5 +1,5 @@
 {
- "maj": "mer. 14 oct. à 20:50",
+ "maj": "mer. 14 oct. à 21:00",
  "stats_releve": "lun. 12 oct. à 15:35",
  "comptes": {
   "tiktok": {
@@ -352,27 +352,29 @@
    "date": "2026-10-15",
    "jour": "Jeu. 15",
    "heure": "19:00",
-   "num": "",
-   "titre": "Sujet d'actualité en cours de choix",
+   "num": "067",
+   "titre": "Pourquoi les tranches d'impôt bougent chaque année",
    "type": "Actu",
-   "etape": "En préparation",
-   "script": "En cours",
-   "video": "Non",
+   "etape": "Prête",
+   "script": "Oui",
+   "video": "Oui",
    "metricool": "Non",
-   "cle": "2026-10-15 19:00"
+   "cle": "2026-10-15 19:00",
+   "miniature": "thumbs/067.jpg"
   },
   {
    "date": "2026-10-15",
    "jour": "Jeu. 15",
    "heure": "22:00",
-   "num": "",
-   "titre": "Sujet d'actualité en cours de choix",
+   "num": "068",
+   "titre": "Pourquoi le budget se vote d'abord par les recettes",
    "type": "Actu",
-   "etape": "En préparation",
-   "script": "En cours",
-   "video": "Non",
+   "etape": "Prête",
+   "script": "Oui",
+   "video": "Oui",
    "metricool": "Non",
-   "cle": "2026-10-15 22:00"
+   "cle": "2026-10-15 22:00",
+   "miniature": "thumbs/068.jpg"
   },
   {
    "date": "2026-10-16",
@@ -539,22 +541,15 @@
  ],
  "activite": [
   {
-   "quand": "14/10 20:50",
-   "ordre": 1,
-   "tache": "Vidéos d'actu du lendemain",
-   "etat": "En cours",
-   "detail": "Recherche, script, voix et rendu en cours sur le Mac."
-  },
-  {
    "quand": "15/10 13:00",
-   "ordre": 2,
+   "ordre": 1,
    "tache": "Idées d'actu (Telegram)",
    "etat": "Prévu",
    "detail": "6 idées d'actu pour le lendemain, envoyées sur Telegram."
   },
   {
    "quand": "15/10 18:00",
-   "ordre": 3,
+   "ordre": 2,
    "tache": "Vidéos d'actu du lendemain",
    "etat": "Prévu",
    "detail": "2 vidéos d'actu (19:00 et 22:00) pour le lendemain, puis programmation."
@@ -564,35 +559,35 @@
    "tache": "Vidéos d'actu du lendemain",
    "etat": "Terminé",
    "detail": "Tâche lancée sur le Mac.",
-   "ordre": 4
+   "ordre": 3
   },
   {
    "quand": "14/10 16:26",
    "tache": "Idées d'actu (Telegram)",
    "etat": "Terminé",
    "detail": "Tâche lancée sur le Mac.",
-   "ordre": 5
+   "ordre": 4
   },
   {
    "quand": "13/10 18:51",
    "tache": "Vidéos d'actu du lendemain",
    "etat": "Terminé",
    "detail": "Tâche lancée sur le Mac.",
-   "ordre": 6
+   "ordre": 5
   },
   {
    "quand": "13/10 14:05",
    "tache": "Idées d'actu (Telegram)",
    "etat": "Terminé",
    "detail": "Tâche lancée sur le Mac.",
-   "ordre": 7
+   "ordre": 6
   },
   {
    "quand": "13/10 13:55",
    "tache": "Programmation Metricool",
    "etat": "Terminé",
    "detail": "Consigne envoyée à ChatGPT pour le 2026-10-14 (19:00 et 22:00).",
-   "ordre": 8
+   "ordre": 7
   }
  ]
 }
