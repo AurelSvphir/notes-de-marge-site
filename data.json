@@ -1,5 +1,5 @@
 {
- "maj": "mer. 14 oct. à 23:01",
+ "maj": "jeu. 15 oct. à 14:32",
  "stats_releve": "lun. 12 oct. à 15:35",
  "comptes": {
   "tiktok": {
@@ -109,7 +109,7 @@
    "num": "046",
    "titre": "Les talons hauts inventés pour les hommes",
    "type": "Stock",
-   "etape": "Programmée",
+   "etape": "Publiée",
    "script": "Non",
    "video": "Oui",
    "metricool": "Oui",
@@ -327,7 +327,7 @@
    "num": "055",
    "titre": "Le Mur de Berlin ouvert par une réponse improvisée",
    "type": "Hors actu",
-   "etape": "Programmée",
+   "etape": "Publiée",
    "script": "Oui",
    "video": "Oui",
    "metricool": "Oui",
@@ -341,7 +341,7 @@
    "num": "056",
    "titre": "Le Monopoly, inventé contre les monopoles",
    "type": "Hors actu",
-   "etape": "Programmée",
+   "etape": "Publiée",
    "script": "Oui",
    "video": "Oui",
    "metricool": "Oui",
@@ -541,18 +541,18 @@
  ],
  "activite": [
   {
-   "quand": "15/10 13:00",
-   "ordre": 1,
-   "tache": "Idées d'actu (Telegram)",
-   "etat": "Prévu",
-   "detail": "6 idées d'actu pour le lendemain, envoyées sur Telegram."
-  },
-  {
    "quand": "15/10 18:00",
-   "ordre": 2,
+   "ordre": 1,
    "tache": "Vidéos d'actu du lendemain",
    "etat": "Prévu",
    "detail": "2 vidéos d'actu (19:00 et 22:00) pour le lendemain, puis programmation."
+  },
+  {
+   "quand": "16/10 13:00",
+   "ordre": 2,
+   "tache": "Idées d'actu (Telegram)",
+   "etat": "Prévu",
+   "detail": "6 idées d'actu pour le lendemain, envoyées sur Telegram."
   },
   {
    "quand": "14/10 21:00",
