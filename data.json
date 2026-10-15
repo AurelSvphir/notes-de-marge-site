@@ -1,5 +1,5 @@
 {
- "maj": "jeu. 15 oct. à 14:32",
+ "maj": "jeu. 15 oct. à 14:43",
  "stats_releve": "lun. 12 oct. à 15:35",
  "comptes": {
   "tiktok": {
@@ -555,46 +555,32 @@
    "detail": "6 idées d'actu pour le lendemain, envoyées sur Telegram."
   },
   {
+   "quand": "15/10 14:33",
+   "tache": "Idées d'actu (Telegram)",
+   "etat": "Terminé",
+   "detail": "Tâche lancée sur le Mac.",
+   "ordre": 3
+  },
+  {
    "quand": "14/10 21:00",
    "tache": "Programmation Metricool",
    "etat": "Terminé",
    "detail": "Consigne envoyée à ChatGPT pour le 2026-10-15 (19:00 et 22:00).",
-   "ordre": 3
+   "ordre": 4
   },
   {
    "quand": "14/10 19:44",
    "tache": "Vidéos d'actu du lendemain",
    "etat": "Terminé",
    "detail": "Tâche lancée sur le Mac.",
-   "ordre": 4
+   "ordre": 5
   },
   {
    "quand": "14/10 16:26",
    "tache": "Idées d'actu (Telegram)",
    "etat": "Terminé",
    "detail": "Tâche lancée sur le Mac.",
-   "ordre": 5
-  },
-  {
-   "quand": "13/10 18:51",
-   "tache": "Vidéos d'actu du lendemain",
-   "etat": "Terminé",
-   "detail": "Tâche lancée sur le Mac.",
    "ordre": 6
-  },
-  {
-   "quand": "13/10 14:05",
-   "tache": "Idées d'actu (Telegram)",
-   "etat": "Terminé",
-   "detail": "Tâche lancée sur le Mac.",
-   "ordre": 7
-  },
-  {
-   "quand": "13/10 13:55",
-   "tache": "Programmation Metricool",
-   "etat": "Terminé",
-   "detail": "Consigne envoyée à ChatGPT pour le 2026-10-14 (19:00 et 22:00).",
-   "ordre": 8
   }
  ]
 }
